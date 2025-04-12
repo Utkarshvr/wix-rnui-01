@@ -33,7 +33,7 @@ export default function Index() {
 
 ### Dark Mode Support
 
-#### <span style="color: #ff4545; font-weight:bold;font-size:18px">Wrong Way</span>
+#### Wrong Way
 
 Add this to root file of the app (say _layout.tsx)
 
@@ -43,13 +43,48 @@ require("react-native-ui-lib/config").setConfig({ appScheme: "default" });
 
 But this stops working unexpectedly
 
-#### <span style="color: #458cff; font-weight:bold;font-size:18px">Right Way</span>
+#### Right Way
 
 In the _layout.tsx, add this.
 
 ```js
 import { Colors } from "react-native-ui-lib";
 Colors.setScheme("default"); // "default" | "dark" | "light"
+```
+
+`layout.tsx`
+```js
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import { Colors } from "react-native-ui-lib";
+
+Colors.setScheme("default");
+
+export default function RootLayout() {
+  return (
+    <SafeAreaView
+      style={[
+        {
+          flex: 1,
+          height: "100%",
+          width: "100%",
+          backgroundColor: Colors.$backgroundDefault,
+        },
+      ]}
+    >
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: Colors.$backgroundDefault },
+          headerTintColor: Colors.$textDefault,
+        }}
+      />
+
+      <StatusBar style="auto" />
+    </SafeAreaView>
+  );
+}
 ```
 
 ## More

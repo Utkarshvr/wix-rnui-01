@@ -2,12 +2,23 @@ import {
   Button,
   ColorPalette,
   Colors,
+  LoaderScreen,
   TextField,
+  Timeline,
   View,
   WheelPicker,
 } from "react-native-ui-lib";
 
 export default function Index() {
+  return (
+    <View gap-s5 centerV flex bg-$backgroundDefault>
+      <LoaderScreen
+        messageStyle={{ color: Colors.$textNeutral }}
+        message={"Message goes here"}
+        color={Colors.$textNeutral}
+      />
+    </View>
+  );
   return (
     <View gap-s5 centerV flex bg-$backgroundDefault>
       <TextField
@@ -21,7 +32,6 @@ export default function Index() {
         showCharCounter
         maxLength={30}
       />
-
       {/* <WheelPicker
         items={[
           { label: "Yes", value: "yes" },
