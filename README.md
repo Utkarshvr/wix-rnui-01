@@ -1,50 +1,42 @@
-# Welcome to your Expo app 👋
+# Wix RNUI Lib
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Installation
 
-## Get started
+Docs: <https://wix.github.io/react-native-ui-lib/docs/getting-started/setup>
 
-1. Install dependencies
+`yarn add react-native-ui-lib`
 
-   ```bash
-   npm install
-   ```
+### Dependencies
 
-2. Start the app
+`yarn add react-native-reanimated react-native-gesture-handler`
 
-   ```bash
-    npx expo start
-   ```
+## Setup
 
-In the output, you'll find options to open the app in a
+Docs: <https://wix.github.io/react-native-ui-lib/docs/foundation/style>
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+```js
+import { View } from "react-native-ui-lib";
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+export default function Index() {
+  return (
+    <View row gap-s5 centerV flex bg-$backgroundDefault>
+      <View style={{ width: 200, height: 200 }} bg-purple40 centerH>
+        <View style={{ width: 60, height: 60 }} bg-green20 />
+      </View>
+      <View style={{ width: 150, height: 150 }} bg-orange30 bottom right>
+        <View style={{ width: 50, height: 50 }} bg-yellow40 br100 margin-s2 />
+      </View>
+    </View>
+  );
+}
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Dark Mode Support
 
-## Learn more
+Add this to root file of the app (say _layout.tsx)
+```js
+require("react-native-ui-lib/config").setConfig({ appScheme: "default" });
+```
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## More
+Read docs: https://wix.github.io/react-native-ui-lib/docs/foundation/style
