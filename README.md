@@ -33,10 +33,25 @@ export default function Index() {
 
 ### Dark Mode Support
 
+#### <span style="color: #ff4545; font-weight:bold;font-size:18px">Wrong Way</span>
+
 Add this to root file of the app (say _layout.tsx)
+
 ```js
 require("react-native-ui-lib/config").setConfig({ appScheme: "default" });
 ```
 
+But this stops working unexpectedly
+
+#### <span style="color: #458cff; font-weight:bold;font-size:18px">Right Way</span>
+
+In the _layout.tsx, add this.
+
+```js
+import { Colors } from "react-native-ui-lib";
+Colors.setScheme("default"); // "default" | "dark" | "light"
+```
+
 ## More
-Read docs: https://wix.github.io/react-native-ui-lib/docs/foundation/style
+
+Read docs: <https://wix.github.io/react-native-ui-lib/docs/foundation/style>
